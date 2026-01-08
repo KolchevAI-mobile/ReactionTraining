@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Reaction Training</string>
+    <string name="app_name" translatable="false">Reaction Training</string>
+    <string name="training">Time to training</string>
+    <string name="begin">Begin</string>
+    <string name="result">Your result: %d</string>
+    <string name="image_description">Stoplight Image</string>
 </resources>
