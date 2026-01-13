@@ -43,7 +43,7 @@
         android:importantForAccessibility="no"
         app:tint="@color/stoplightOff"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintBottom_toTopOf="@+id/begin_button"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/second_light"
         app:layout_constraintHorizontal_chainStyle="packed" />
@@ -76,7 +76,7 @@
 
 
     <Button
-        android:id="@+id/begin_button"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -84,9 +84,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/begin"
+        android:text="@string/button_begin"
         android:textSize="20sp"
-        android:backgroundTint="@color/button"/>
+        android:backgroundTint="@color/button_active"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

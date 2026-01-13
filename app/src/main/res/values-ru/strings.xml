@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="training">Время тренроваться</string>
-    <string name="begin">Начать</string>
+    <string name="button_false_start">Фальшстарт</string>
+    <string name="button_stop">Стоп</string>
     <string name="result">Твой результат</string>
     <string name="image_description">Изображение светофора</string>
+    <string name="button_begin">Начать</string>
+    <string name="button_wait">Ожидание...</string>
     <string name="timer_placeholder">000 мс</string>
 </resources>

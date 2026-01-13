@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">Reaction Training</string>
     <string name="training">Time to training</string>
-    <string name="begin">Begin</string>
+    <string name="button_begin">Begin</string>
+    <string name="button_wait">Waiting</string>
+    <string name="button_false_start">False start</string>
+    <string name="button_stop">Stop</string>
     <string name="result">Your result: %d</string>
     <string name="image_description">Stoplight Image</string>
     <string name="timer_placeholder">000 ms</string>

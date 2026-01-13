@@ -4,9 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red_dark">#3A0202</color>
     <color name="red">#C50707</color>
+    <color name="grey">#898989</color>
 
     <color name="stoplightOn">@color/red</color>
     <color name="stoplightOff">@color/red_dark</color>
-    <color name="button">@color/black</color>
+    <color name="button_active">@color/black</color>
+    <color name="button_inactive">@color/grey</color>
+    <color name="button_stop">@color/red_dark</color>
     <color name="surface">@color/white</color>
 </resources>
