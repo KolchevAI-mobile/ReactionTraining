@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private var runnable1: Runnable? = null
     private var runnable2: Runnable? = null
     private var runnable3: Runnable? = null
+    private var timerRunnable: Runnable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             GameState.STARTED -> {
+                timerRunnable?.let { handler.removeCallbacks(it) }
                 endTime = System.currentTimeMillis()
                 val result = endTime - startTime
                 binding.timer.text = "$result ms"
@@ -89,6 +91,11 @@ class MainActivity : AppCompatActivity() {
             resetLights()
             currentState = GameState.STARTED
             startTime = System.currentTimeMillis()
+
+            binding.button.text = ContextCompat.getString(this, R.string.button_stop)
+            binding.button.backgroundTintList = ContextCompat.getColorStateList(this, R.color.button_stop)
+
+            startTimerTicker()
         }
         handler.postDelayed(runnable3!!, 1000 + randomDelay)
     }
@@ -97,12 +104,26 @@ class MainActivity : AppCompatActivity() {
         runnable1?.let { handler.removeCallbacks(it) }
         runnable2?.let { handler.removeCallbacks(it) }
         runnable3?.let { handler.removeCallbacks(it) }
+        timerRunnable?.let { handler.removeCallbacks(it) }
 
         resetLights()
         currentState = GameState.IDLE
 
         binding.button.backgroundTintList = ContextCompat.getColorStateList(this, R.color.button_active)
         binding.button.text = ContextCompat.getString(this, R.string.button_false_start)
+    }
+
+    fun startTimerTicker() {
+        timerRunnable = object: Runnable {
+            override fun run() {
+                if (currentState == GameState.STARTED) {
+                    val elapsed = System.currentTimeMillis() - startTime
+                    binding.timer.text = "$elapsed ms"
+                    handler.postDelayed(this, 10)
+                }
+            }
+        }
+        handler.post(timerRunnable!!)
     }
 
 }
