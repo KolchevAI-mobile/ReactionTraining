@@ -1,4 +1,4 @@
-package com.example.reactiontraining
+package com.example.reactiontraining.data.models
 
 enum class GameState {
     IDLE, //состояние покоя
