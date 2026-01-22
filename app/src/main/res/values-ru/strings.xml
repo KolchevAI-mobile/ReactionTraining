@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="training">Время тренроваться</string>
-    <string name="button_false_start">Фальшстарт</string>
+    <string name="button_false_start">Фальстарт</string>
     <string name="button_stop">Стоп</string>
     <string name="result">Твой результат</string>
     <string name="image_description">Изображение светофора</string>
