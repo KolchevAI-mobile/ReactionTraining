@@ -58,14 +58,16 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         }
     }
 
-    private fun updateLights(index: Int) {
+    private fun updateLights(count: Int) {
         val colorOff = ContextCompat.getColor(requireContext(), R.color.stoplightOff)
         val colorOn = ContextCompat.getColor(requireContext(), R.color.stoplightOn)
 
-        lights.forEach { it.setColorFilter(colorOff) }
-
-        if (index in lights.indices) {
-            lights[index].setColorFilter(colorOn)
+        lights.forEachIndexed {index, imageView ->
+            if (index < count) {
+                imageView.setColorFilter(colorOn)
+            } else {
+                imageView.setColorFilter(colorOff)
+            }
         }
     }
 

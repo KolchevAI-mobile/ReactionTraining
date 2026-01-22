@@ -29,17 +29,17 @@ class GameViewModel : ViewModel() {
     val currentTime: LiveData<Long> = _currentTime
 
     fun startTrafficLightSequence() {
-        _litLampIndex.value = -1
-
         _litLampIndex.value = 0
 
+        _litLampIndex.value = 1
+
         runnable1 = Runnable {
-            _litLampIndex.value = 1
+            _litLampIndex.value = 2
         }
         handler.postDelayed(runnable1!!, 500)
 
         runnable2 = Runnable {
-            _litLampIndex.value = 2
+            _litLampIndex.value = 3
         }
         handler.postDelayed(runnable2!!, 1000)
 
@@ -66,10 +66,12 @@ class GameViewModel : ViewModel() {
         handler.post(timerRunnable!!)
     }
 
-    fun stopAllProcesses() {
+    fun stopAllProcesses(clearTimer: Boolean) {
         handler.removeCallbacksAndMessages(null)
         _litLampIndex.value = -1
-        _currentTime.value = 0L
+        if (clearTimer) {
+            _currentTime.value = 0L
+        }
     }
 
     fun updateState(state: GameState) {
@@ -84,17 +86,18 @@ class GameViewModel : ViewModel() {
     fun handleButtonClick() {
         when (gameState.value) {
             GameState.IDLE -> {
+                _currentTime.value = 0L
                 updateState(GameState.WAIT)
                 startTrafficLightSequence()
             }
 
             GameState.WAIT -> {
-                stopAllProcesses()
+                stopAllProcesses(clearTimer = true)
                 updateState(GameState.IDLE)
             }
 
             GameState.STARTED -> {
-                stopAllProcesses()
+                stopAllProcesses(clearTimer = false)
                 updateState(GameState.IDLE)
             }
         }
