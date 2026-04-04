@@ -1,4 +1,8 @@
 # Reaction Training Game
+
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)](https://kotlinlang.org/)
+
 Мини‑игра для тренировки скорости реакции на Android.
 Жмёшь старт, ждёшь случайный интервал и как можно быстрее реагируешь, когда «светофор» даёт сигнал.
 
