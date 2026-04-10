@@ -5,9 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.reactiontraining"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.reactiontraining"
@@ -42,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

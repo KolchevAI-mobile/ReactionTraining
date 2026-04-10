@@ -5,7 +5,7 @@ import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.reactiontraining.data.models.GameState
+import com.example.reactiontraining.shared.model.GameState
 import kotlinx.coroutines.Runnable
 
 class GameViewModel : ViewModel() {
@@ -84,7 +84,7 @@ class GameViewModel : ViewModel() {
     }
 
     fun handleButtonClick() {
-        when (gameState.value) {
+        when (gameState.value ?: GameState.IDLE) {
             GameState.IDLE -> {
                 _currentTime.value = 0L
                 updateState(GameState.WAIT)

@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Reaction Training"
 include(":app")
+include(":shared")

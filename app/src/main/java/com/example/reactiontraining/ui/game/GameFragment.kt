@@ -7,8 +7,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.reactiontraining.R
-import com.example.reactiontraining.data.models.GameState
 import com.example.reactiontraining.databinding.FragmentGameBinding
+import com.example.reactiontraining.shared.model.GameState
 
 class GameFragment : Fragment(R.layout.fragment_game) {
     private var _binding: FragmentGameBinding? = null
