@@ -1,32 +1,35 @@
 package com.example.reactiontraining.shared.ui.theme
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-private val colorScheme = lightColorScheme(
-    primary = ButtonActive,
-    onPrimary = OnPrimary,
+private val colorScheme = darkColorScheme(
+    primary = ButtonStart,
+    onPrimary = ButtonText,
+    primaryContainer = ButtonWait,
+    onPrimaryContainer = ButtonText,
     background = ScreenBackground,
-    surface = Color.White,
-    onBackground = OnSurface,
-    onSurface = OnSurface,
+    onBackground = BrightText,
+    surface = CardSolid,
+    onSurface = BrightText,
+    surfaceVariant = StoplightHousing,
+    onSurfaceVariant = SubtleText,
+    outline = CardBorder,
+    error = ButtonStop,
+    onError = ButtonText,
+    tertiary = AccentAmber,
+    onTertiary = Color(0xFF1A0F00),
 )
 
 @Composable
 fun ReactionTrainingTheme(
     content: @Composable () -> Unit,
 ) {
-    MaterialTheme(colorScheme = colorScheme) {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background,
-        ) {
-            content()
-        }
-    }
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = GameTypography,
+        content = content,
+    )
 }
