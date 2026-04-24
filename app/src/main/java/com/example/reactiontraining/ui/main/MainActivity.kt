@@ -1,16 +1,27 @@
 package com.example.reactiontraining.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.reactiontraining.databinding.ActivityMainBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.reactiontraining.shared.ui.GameScreen
+import com.example.reactiontraining.shared.ui.theme.ReactionTrainingTheme
+import com.example.reactiontraining.ui.game.GameViewModel
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContent {
+            ReactionTrainingTheme {
+                val viewModel: GameViewModel = viewModel()
+                val state by viewModel.screenState.collectAsStateWithLifecycle()
+                GameScreen(
+                    state = state,
+                    onPrimaryClick = viewModel::handleButtonClick,
+                )
+            }
+        }
     }
 }
